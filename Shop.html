@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Garg Home Decor | Premium Product Store</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: rgba(255,255,255,0.95);
+      --text: #0f172a;
+      --muted: #64748b;
+      --accent: #7c3aed;
+      --accent-2: #ec4899;
+      --success: #22c55e;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+    }
+
+    body.dark {
+      --card: #111827;
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --accent: #a78bfa;
+      --accent-2: #f472b6;
+      --success: #4ade80;
+      --surface: #1f2937;
+      --border: #374151;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text);
+      background: linear-gradient(135deg, #111827, #312e81, #be185d);
+      background-size: 300% 300%;
+      animation: gradientMove 12s ease infinite;
+      min-height: 100vh;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      padding: 16px 0 24px;
+    }
+
+    .brand {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .brand span {
+      color: #fbbf24;
+    }
+
+    .topbar a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 600;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: center;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+      margin-bottom: 24px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: -40px;
+      top: -40px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(251,191,36,0.5), transparent 70%);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .hero h1 {
+      font-size: 38px;
+      color: white;
+      margin: 0 0 12px;
+    }
+
+    .hero p {
+      color: #e2e8f0;
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0 0 18px;
+    }
+
+    .hero .btn-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button, input, textarea {
+      pointer-events: auto;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--accent);
+    }
+
+    .hero-card {
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      animation: float 3.5s ease-in-out infinite;
+    }
+
+    .hero-card h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    .hero-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .stat {
+      background: #f8fafc;
+      padding: 12px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 18px;
+      color: var(--accent);
+    }
+
+    .panel {
+      background: var(--card);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+      margin-bottom: 24px;
+    }
+
+    .auth-panel {
+      background: rgba(255,255,255,0.95);
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    .auth-toggle {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .auth-toggle button {
+      flex: 1;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 12px;
+      cursor: pointer;
+      font-weight: 700;
+      background: #e2e8f0;
+      color: #334155;
+    }
+
+    .auth-toggle button.active {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+    }
+
+    .auth-panel form {
+      display: grid;
+      gap: 10px;
+    }
+
+    .auth-panel input {
+      width: 100%;
+    }
+
+    .auth-message {
+      margin-top: 10px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .theme-toggle,
+    .cart-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(255,255,255,0.16);
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .cart-layout {
+      display: grid;
+      grid-template-columns: 1.6fr 0.8fr;
+      gap: 20px;
+    }
+
+    .cart-panel,
+    .checkout-panel {
+      background: var(--card);
+      border-radius: 24px;
+      padding: 20px;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cart-item:last-child {
+      border-bottom: 0;
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      margin-top: 12px;
+      font-size: 18px;
+    }
+
+    .checkout-form {
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .checkout-form input {
+      width: 100%;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .panel h2 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-size: 24px;
+    }
+
+    .category-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .category-pill {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .payment-box {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      background: var(--surface);
+      margin-top: 10px;
+    }
+
+    .orders-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .order-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      background: var(--surface);
+    }
+
+    .payment-options {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .payment-option {
+      flex: 1;
+      min-width: 110px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 10px;
+      text-align: center;
+      cursor: pointer;
+      background: var(--surface);
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .payment-option.active {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+      border-color: transparent;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    input, textarea {
+      padding: 10px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    input:disabled, textarea:disabled {
+      background: #f8fafc;
+      color: #64748b;
+      cursor: not-allowed;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.14);
+    }
+
+    .locked-view {
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      pointer-events: none;
+    }
+
+    .product-image {
+      height: 180px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .product-image::after {
+      content: 'New Arrival';
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .product-body {
+      padding: 16px;
+    }
+
+    .product-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .product-top h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .badge {
+      background: #ede9fe;
+      color: var(--accent);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .product-body p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .price-row label {
+      flex: 1;
+      font-size: 13px;
+    }
+
+    .price-row input {
+      width: 100%;
+      margin-top: 4px;
+    }
+
+    .save-btn {
+      width: 100%;
+      margin-top: 10px;
+      background: var(--success);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .empty {
+      text-align: center;
+      color: var(--muted);
+      padding: 20px 0;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .product-grid { grid-template-columns: 1fr 1fr; }
+      .form-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .product-grid { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: 1fr; }
+      .topbar { flex-direction: column; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container locked-view">
+    <header class="topbar">
+      <div class="brand">Garg<span>Home Decor</span></div>
+      <div class="topbar-actions">
+        <button class="theme-toggle" id="theme-toggle">🌙 Dark</button>
+        <button class="cart-btn" id="cart-toggle">🛒 Cart (0)</button>
+        <nav>
+          <a href="#products">Products</a>
+          <a href="#add-product" id="add-product-link" class="hidden">Add Product</a>
+          <a href="#about">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h1>Sell your products with a smooth, animated online shop.</h1>
+        <p>Showcase your items beautifully, update prices instantly, and add product measurements so buyers can choose with confidence.</p>
+        <div class="btn-row">
+          <button class="btn btn-primary hidden" id="hero-add-product-button" onclick="document.getElementById('add-product').scrollIntoView({behavior:'smooth'})">Add New Product</button>
+          <button class="btn btn-secondary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">View Products</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>Shop Highlights</h3>
+        <p>Animated layout • Editable prices • Measurement details • Quick product management</p>
+        <div class="stats">
+          <div class="stat"><strong id="product-count">0</strong><span>Products</span></div>
+          <div class="stat"><strong id="price-count">0</strong><span>Prices Ready</span></div>
+          <div class="stat"><strong>24/7</strong><span>Online</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="auth-panel">
+      <div class="auth-toggle">
+        <button type="button" class="active" id="show-signin">Sign In</button>
+        <button type="button" id="show-register">Register</button>
+      </div>
+
+      <form id="signin-form">
+        <input type="email" id="signin-email" placeholder="Email" required>
+        <input type="password" id="signin-password" placeholder="Password" required>
+        <button class="btn btn-primary" type="submit">Sign In</button>
+      </form>
+
+      <form id="register-form" class="hidden">
+        <input type="text" id="register-name" placeholder="Your name" required>
+        <input type="email" id="register-email" placeholder="Email" required>
+        <input type="password" id="register-password" placeholder="Password" required>
+        <button class="btn btn-secondary" type="submit">Register</button>
+      </form>
+
+      <div id="auth-message" class="auth-message">Register or sign in to access the store.</div>
+    </section>
+
+    <div id="protected-content" class="hidden">
+      <section class="panel hidden" id="add-product">
+      <h2>Admin Product Editor</h2>
+      <form id="product-form">
+        <div class="form-grid">
+          <label>
+            Product Name
+            <input type="text" id="name" placeholder="e.g. Velvet Curtain Set" required>
+          </label>
+          <label>
+            Price ($)
+            <input type="number" id="price" step="0.01" placeholder="89.99" required>
+          </label>
+          <label>
+            Measurements
+            <input type="text" id="measurement" placeholder="W: 240 cm, H: 260 cm" required>
+          </label>
+          <label>
+            Image URL
+            <input type="text" id="image" placeholder="https://..." required>
+          </label>
+        </div>
+        <label style="margin-top: 12px;">
+          Description
+          <textarea id="description" placeholder="Describe the product features"></textarea>
+        </label>
+        <button class="btn btn-primary" style="margin-top: 14px;" type="submit">Add Product</button>
+      </form>
+    </section>
+
+    <section class="panel" id="categories">
+      <h2>Shop by Category</h2>
+      <div class="category-list">
+        <span class="category-pill">Curtains</span>
+        <span class="category-pill">Flooring</span>
+        <span class="category-pill">Wallpaper</span>
+      </div>
+    </section>
+
+    <section class="panel" id="products">
+      <h2>Your Product List</h2>
+      <div id="product-grid" class="product-grid"></div>
+    </section>
+
+    <section class="panel hidden" id="orders-section">
+      <h2>Placed Orders</h2>
+      <div id="orders-list" class="orders-list"></div>
+    </section>
+
+    <section class="panel" id="cart-section">
+      <h2>Shopping Cart</h2>
+      <div class="cart-layout">
+        <div class="cart-panel">
+          <div id="cart-items"></div>
+          <div class="cart-total">
+            <span>Total</span>
+            <span id="cart-total">₹0.00</span>
+          </div>
+        </div>
+        <div class="checkout-panel">
+          <h3>Checkout</h3>
+          <form class="checkout-form" id="checkout-form">
+            <input type="text" placeholder="Your name" required>
+            <input type="email" placeholder="Your email" required>
+            <input type="text" placeholder="Shipping address" required>
+            <button class="btn btn-primary" type="submit">Place Order</button>
+          </form>
+          <p id="order-message" class="empty"></p>
+        </div>
+      </div>
+    </section>
+    </div>
+  </div>
+
+  <script>
+    const storageKey = 'glowcart-products';
+    const cartStorageKey = 'glowcart-cart';
+    const authStorageKey = 'glowcart-auth';
+    const ordersStorageKey = 'glowcart-orders';
+    const initialProducts = [
+      {
+        id: 1,
+        name: 'Velvet Curtain Set',
+        price: 89.99,
+        measurement: 'W: 240 cm, H: 260 cm',
+        image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80',
+        description: 'Elegant velvet curtains for a luxurious and cozy living space.'
+      },
+      {
+        id: 2,
+        name: 'Linen Curtain Panel',
+        price: 54.5,
+        measurement: 'W: 200 cm, H: 240 cm',
+        image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=80',
+        description: 'Soft linen texture that brings warmth and natural charm to any room.'
+      },
+      {
+        id: 3,
+        name: 'Oak Flooring Planks',
+        price: 129.99,
+        measurement: 'Area: 2.5 m² per box',
+        image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80',
+        description: 'Durable oak flooring with a rich finish and timeless style.'
+      },
+      {
+        id: 4,
+        name: 'Walnut Flooring Board',
+        price: 112.75,
+        measurement: 'Area: 2 m² per box',
+        image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80',
+        description: 'Premium walnut-inspired floorboards for modern interiors.'
+      },
+      {
+        id: 5,
+        name: 'Floral Wallpaper Roll',
+        price: 39.99,
+        measurement: 'W: 53 cm, H: 10 m',
+        image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80',
+        description: 'Fresh floral design that adds elegance and softness to walls.'
+      },
+      {
+        id: 6,
+        name: 'Geometric Wallpaper Roll',
+        price: 45.5,
+        measurement: 'W: 53 cm, H: 10 m',
+        image: 'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80',
+        description: 'Bold geometric pattern ideal for contemporary styling.'
+      }
+    ];
+
+    let products = JSON.parse(localStorage.getItem(storageKey)) || initialProducts;
+    let cart = JSON.parse(localStorage.getItem(cartStorageKey)) || [];
+
+    const grid = document.getElementById('product-grid');
+    const form = document.getElementById('product-form');
+    const signinForm = document.getElementById('signin-form');
+    const registerForm = document.getElementById('register-form');
+    const authMessage = document.getElementById('auth-message');
+    const showSigninBtn = document.getElementById('show-signin');
+    const showRegisterBtn = document.getElementById('show-register');
+    const productCount = document.getElementById('product-count');
+    const priceCount = document.getElementById('price-count');
+    const cartItems = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    const cartButton = document.getElementById('cart-toggle');
+    const themeToggle = document.getElementById('theme-toggle');
+    const checkoutForm = document.getElementById('checkout-form');
+    const orderMessage = document.getElementById('order-message');
+    const cartSection = document.getElementById('cart-section');
+    const addProductSection = document.getElementById('add-product');
+    const addProductLink = document.getElementById('add-product-link');
+    const heroAddProductButton = document.getElementById('hero-add-product-button');
+    const protectedContent = document.getElementById('protected-content');
+    const container = document.querySelector('.container');
+    const ordersSection = document.getElementById('orders-section');
+    const ordersList = document.getElementById('orders-list');
+
+    let isAdmin = false;
+    let currentUser = null;
+    let orders = JSON.parse(localStorage.getItem(ordersStorageKey)) || [];
+
+    function lockSite() {
+      protectedContent.classList.add('hidden');
+      container.classList.add('locked-view');
+      authMessage.textContent = 'Register or sign in to access the store.';
+    }
+
+    function unlockSite(user) {
+      currentUser = user;
+      isAdmin = Boolean(user && user.isAdmin);
+      protectedContent.classList.remove('hidden');
+      container.classList.remove('locked-view');
+      toggleAdminUI();
+      renderProducts();
+      renderCart();
+      authMessage.textContent = user && user.isAdmin
+        ? 'Admin access granted. You can edit the panel.'
+        : 'Welcome! You can browse and shop now.';
+    }
+
+    function toggleAdminUI() {
+      const showAdminTools = isAdmin;
+      addProductSection.classList.toggle('hidden', !showAdminTools);
+      addProductLink.classList.toggle('hidden', !showAdminTools);
+      heroAddProductButton.classList.toggle('hidden', !showAdminTools);
+      ordersSection.classList.toggle('hidden', !showAdminTools);
+      renderOrders();
+    }
+
+    function unlockEditor() {
+      const user = { email: document.getElementById('signin-email').value.trim(), isAdmin: true };
+      localStorage.setItem(authStorageKey, JSON.stringify(user));
+      unlockSite(user);
+    }
+
+    function enableShopperMode() {
+      const user = { email: document.getElementById('signin-email').value.trim(), isAdmin: false };
+      localStorage.setItem(authStorageKey, JSON.stringify(user));
+      unlockSite(user);
+    }
+
+    function saveProducts() {
+      localStorage.setItem(storageKey, JSON.stringify(products));
+      updateStats();
+    }
+
+    function saveCart() {
+      localStorage.setItem(cartStorageKey, JSON.stringify(cart));
+      renderCart();
+    }
+
+    function updateStats() {
+      productCount.textContent = products.length;
+      priceCount.textContent = products.length;
+    }
+
+    function renderCart() {
+      cartButton.textContent = `🛒 Cart (${cart.length})`;
+      if (!cart.length) {
+        cartItems.innerHTML = '<div class="empty">Your cart is empty.</div>';
+        cartTotal.textContent = '₹0.00';
+        return;
+      }
+
+      const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+      cartTotal.textContent = `₹${total.toFixed(2)}`;
+      cartItems.innerHTML = cart.map(item => `
+        <div class="cart-item">
+          <div>
+            <strong>${item.name}</strong><br>
+            <span>${item.measurement}</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span>₹${item.price.toFixed(2)} x ${item.qty}</span>
+            <button class="btn btn-secondary" data-remove="${item.id}" style="padding:6px 10px; font-size:12px;">Remove</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderOrders() {
+      if (!isAdmin) {
+        ordersList.innerHTML = '';
+        return;
+      }
+
+      if (!orders.length) {
+        ordersList.innerHTML = '<div class="empty">No orders yet.</div>';
+        return;
+      }
+
+      ordersList.innerHTML = orders.map(order => `
+        <div class="order-card">
+          <strong>${order.customerName}</strong><br>
+          <span>${order.customerEmail}</span><br>
+          <span>Payment: ${order.paymentType}</span><br>
+          <span>Total: ₹${order.total.toFixed(2)}</span>
+          <div style="margin-top:8px;">
+            ${order.items.map(item => `<div>• ${item.name} x ${item.qty}</div>`).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderProducts() {
+      if (!products.length) {
+        grid.innerHTML = '<div class="empty">No products available right now.</div>';
+        updateStats();
+        return;
+      }
+
+      grid.innerHTML = products.map(product => `
+        <article class="product-card">
+          <div class="product-image" style="background-image:url('${product.image}')"></div>
+          <div class="product-body">
+            <div class="product-top">
+              <h3>${product.name}</h3>
+              <span class="badge">${product.measurement}</span>
+            </div>
+            <p>${product.description}</p>
+            <div class="price-row">
+              ${isAdmin ? `<label>Price (₹)<input type="number" step="0.01" value="${product.price}" data-id="${product.id}" data-field="price"></label>` : `<strong>₹${product.price.toFixed(2)}</strong>`}
+            </div>
+            <div class="price-row">
+              ${isAdmin ? `<label>Measurements<input type="text" value="${product.measurement}" data-id="${product.id}" data-field="measurement"></label>` : `<span>${product.measurement}</span>`}
+            </div>
+            ${isAdmin ? `<button class="save-btn" data-id="${product.id}">Save Changes</button>` : ''}
+            ${isAdmin ? `<button class="btn btn-secondary" data-delete="${product.id}" style="width:100%; margin-top:8px;">Delete Product</button>` : ''}
+            <button class="btn btn-secondary" style="width:100%; margin-top:8px;" data-add="${product.id}">Add to Cart</button>
+          </div>
+        </article>
+      `).join('');
+
+      updateStats();
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!isAdmin) return;
+      const newProduct = {
+        id: Date.now(),
+        name: document.getElementById('name').value.trim(),
+        price: parseFloat(document.getElementById('price').value),
+        measurement: document.getElementById('measurement').value.trim(),
+        image: document.getElementById('image').value.trim(),
+        description: document.getElementById('description').value.trim() || 'Fresh product ready for your customers.'
+      };
+
+      if (!newProduct.name || isNaN(newProduct.price) || !newProduct.measurement || !newProduct.image) return;
+
+      products.unshift(newProduct);
+      saveProducts();
+      renderProducts();
+      form.reset();
+    });
+
+    grid.addEventListener('click', function (e) {
+      const button = e.target;
+      if (button.classList.contains('save-btn')) {
+        const id = Number(button.getAttribute('data-id'));
+        const product = products.find(item => item.id === id);
+        if (!product || !isAdmin) return;
+
+        const priceInput = grid.querySelector(`input[data-id="${id}"][data-field="price"]`);
+        const measurementInput = grid.querySelector(`input[data-id="${id}"][data-field="measurement"]`);
+
+        if (priceInput) product.price = parseFloat(priceInput.value) || 0;
+        if (measurementInput) product.measurement = measurementInput.value.trim();
+
+        saveProducts();
+        renderProducts();
+      }
+
+      if (button.getAttribute('data-delete')) {
+        const id = Number(button.getAttribute('data-delete'));
+        if (!isAdmin) return;
+        products = products.filter(item => item.id !== id);
+        cart = cart.filter(item => item.id !== id);
+        saveProducts();
+        saveCart();
+        renderProducts();
+      }
+
+      if (button.getAttribute('data-add')) {
+        const id = Number(button.getAttribute('data-add'));
+        const product = products.find(item => item.id === id);
+        if (!product) return;
+        const existing = cart.find(item => item.id === id);
+        if (existing) existing.qty += 1;
+        else cart.push({ ...product, qty: 1 });
+        saveCart();
+      }
+    });
+
+    checkoutForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!cart.length) {
+        orderMessage.textContent = 'Your cart is empty.';
+        return;
+      }
+
+      const customerName = checkoutForm.querySelector('input[placeholder="Your name"]').value.trim();
+      const customerEmail = checkoutForm.querySelector('input[placeholder="Your email"]').value.trim();
+      const shippingAddress = checkoutForm.querySelector('input[placeholder="Shipping address"]').value.trim();
+      const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+      const itemsText = cart.map(item => `• ${item.name} x${item.qty} - ₹${(item.price * item.qty).toFixed(2)}`).join('\n');
+      const message = `Hello! I would like to place an order.\n\nCustomer: ${customerName}\nEmail: ${customerEmail}\nAddress: ${shippingAddress}\n\nItems:\n${itemsText}\n\nTotal: ₹${total.toFixed(2)}`;
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappUrl = `https://wa.me/+919802194428?text=${encodedMessage}`;
+
+      orders.unshift({
+        id: Date.now(),
+        customerName,
+        customerEmail,
+        paymentType: 'WhatsApp',
+        total,
+        items: cart.map(item => ({ name: item.name, qty: item.qty }))
+      });
+      localStorage.setItem(ordersStorageKey, JSON.stringify(orders));
+      cart = [];
+      saveCart();
+      renderOrders();
+      checkoutForm.reset();
+      window.open(whatsappUrl, '_blank');
+      orderMessage.textContent = 'Opening WhatsApp chat...';
+    });
+
+    cartButton.addEventListener('click', function () {
+      cartSection.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    cartItems.addEventListener('click', function (e) {
+      const button = e.target;
+      if (!button.getAttribute('data-remove')) return;
+
+      const id = Number(button.getAttribute('data-remove'));
+      cart = cart.filter(item => item.id !== id);
+      saveCart();
+    });
+
+    themeToggle.addEventListener('click', function () {
+      document.body.classList.toggle('dark');
+      themeToggle.textContent = document.body.classList.contains('dark') ? '☀️ Light' : '🌙 Dark';
+    });
+
+    signinForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = document.getElementById('signin-email').value.trim();
+      const password = document.getElementById('signin-password').value.trim();
+
+      if (email === 'garvgarg.2022@gmail.com' && password === 'GarvGarg@10102008') {
+        unlockEditor();
+      } else {
+        currentUser = { email, isAdmin: false };
+        enableShopperMode();
+      }
+    });
+
+    registerForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      currentUser = {
+        name: document.getElementById('register-name').value.trim(),
+        email: document.getElementById('register-email').value.trim(),
+        isAdmin: false
+      };
+      localStorage.setItem(authStorageKey, JSON.stringify(currentUser));
+      authMessage.textContent = 'Registration successful. You can shop and buy.';
+      unlockSite(currentUser);
+    });
+
+    showSigninBtn.addEventListener('click', function () {
+      showSigninBtn.classList.add('active');
+      showRegisterBtn.classList.remove('active');
+      signinForm.classList.remove('hidden');
+      registerForm.classList.add('hidden');
+    });
+
+    showRegisterBtn.addEventListener('click', function () {
+      showRegisterBtn.classList.add('active');
+      showSigninBtn.classList.remove('active');
+      registerForm.classList.remove('hidden');
+      signinForm.classList.add('hidden');
+    });
+
+    const savedAuth = JSON.parse(localStorage.getItem(authStorageKey));
+    if (savedAuth) {
+      unlockSite(savedAuth);
+    } else {
+      lockSite();
+    }
+  </script>
+</body>
+</html>
